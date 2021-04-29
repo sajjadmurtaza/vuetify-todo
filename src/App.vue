@@ -1,64 +1,32 @@
 <template>
-  <!-- v-app component holds our entire vuetify material application. -->
-  <v-app id="inspire">
-    <!-- utilize to navigate through the application. -->
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title">
-            Vuetify
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Todo
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-      <v-list
-        dense
-        nav
-      >
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Vuetify Todo Application</v-toolbar-title>
-    </v-app-bar>
-
-    <v-main>
-      <!--  -->
-    </v-main>
-  </v-app>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-  export default {
-    data: () => ({ 
-      drawer: null ,
-      items: [
-          { title: 'Todo', icon: 'mdi-view-dashboard' },
-          { title: 'About', icon: 'mdi-help-box' },
-        ],
-      }),
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
   }
-</script>
+}
+</style>
