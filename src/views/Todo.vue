@@ -1,0 +1,13 @@
+<template>
+  <div class="todo pa-6">
+    <h1>Todo Page</h1>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'Todo'
+}
+</script>
