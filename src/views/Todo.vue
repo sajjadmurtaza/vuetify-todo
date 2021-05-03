@@ -12,6 +12,7 @@
 
         <v-list-item
           @click="doneTask(task.id)"
+          :class="{ 'blue lighten-4' : task.done }"
         >
 
           <template v-slot:default>
@@ -22,7 +23,9 @@
               ></v-checkbox>
             </v-list-item-action>
 
-            <v-list-item-content>
+            <v-list-item-content
+              :class="{ 'text-decoration-line-through' : task.done }"
+            >
               <v-list-item-title>
                 {{task.title}}
               </v-list-item-title>
@@ -31,6 +34,7 @@
                 {{task.time}}
               </v-list-item-subtitle>
             </v-list-item-content>
+
           </template>
         </v-list-item>
 
